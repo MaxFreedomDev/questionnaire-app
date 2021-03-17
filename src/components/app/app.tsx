@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (seconds > 0) {
-      setTimeout(() => setSeconds(seconds - 1), 1000);
+      setTimeout(() => setSeconds(seconds - 1), 10000);
     } else {
       setModalActive(true);
       setShowBtn(true);
