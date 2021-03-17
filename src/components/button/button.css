@@ -1,0 +1,65 @@
+button.button {
+    -webkit-transform: translate3D(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    max-width: 168px;
+    height: 45px;
+    border-radius: 4px;
+    padding: 12px 24px;
+    background-color: #FFA037;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin: 0 0 12px 0;
+}
+button.button:after {
+    padding: 0;
+    content: '';
+    width: 95%;
+    height: 46px;
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+}
+button.button:before {
+    -webkit-transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
+    content: '';
+    width: 100%;
+    height: 60px;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    border-left: 15px solid white;
+    box-shadow: -20px 30px 30px white;
+    background: transparent;
+    top: 0;
+    left: -15px;
+    margin-left: -1px;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+button.button:hover:before, button.boot:active:before, button.boot:focus:before {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    -webkit-transform: translate(115%, 0);
+    -moz-transform: translate(115%, 0);
+    -ms-transform: translate(115%, 0);
+    -o-transform: translate(115%, 0);
+    transform: translate(115%, 0);
+}

@@ -1,0 +1,33 @@
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+.form-content label{
+    color: #565656;
+    margin-bottom: 6px;
+}
+
+.form-content textarea{
+    resize: none;
+    height: 140px;
+    padding: 8px 10px 8px 12px;
+    border: 1px solid #E2E2E2;
+    box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.08), inset -2px 0 4px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    outline: none;
+    color: #999999;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 400;
+}
+.form-content .input_error{
+    border: 1px solid red;
+}
+
+.form-content__error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0;
+    visibility: hidden;
+}

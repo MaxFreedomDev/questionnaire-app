@@ -1,0 +1,32 @@
+.scores {
+    direction: rtl;
+    display: flex;
+    justify-content: flex-end;
+    position:relative;
+    margin-top: 24px;
+    margin-bottom: 181px;
+}
+.scores button {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    width: 32px;
+    max-height: 32px;
+    border-radius: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    color: #565656;
+    background-color: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    padding: 5px 0;
+}
+.scores button {
+    transition: all 0.5s;
+}
+.scores button:hover {
+    background: #FFFBEF;
+    border: 1px solid #FFA037;
+}
+.score:hover ~ button {
+    background: #FFFBEF;
+    border: 1px solid #FFA037;
+}

@@ -1,0 +1,15 @@
+.App main {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+.App main button{
+    margin-top: 50px;
+}
+.App main h2{
+    margin-top: 30px;
+}
+.App main h2 span{
+    margin-left: 10px;
+    color: #565656;
+}
