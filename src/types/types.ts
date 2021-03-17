@@ -1,22 +1,22 @@
 import {Dispatch, SetStateAction} from "react";
 
-export interface IProps {
+export interface IModal {
     active: boolean;
     setActive: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface StepTypes {
     id: number,
-    title: String,
-    text: String,
-    btn_name: String,
-    rating: Boolean
+    title: string,
+    text: string,
+    btn_name: string,
+    rating: boolean
 }
 
 export interface IButtonProps {
     type?: "button" | "submit" | "reset" | undefined,
     styles?: string,
-    text: String | Number,
+    text: string | number,
     callback?: () => void
 }
 
@@ -24,10 +24,12 @@ export interface IInput {
     text: string;
 }
 
+
 export interface IPropsForm {
-    submit: () => void
+    submit: (comment: string, id: number) => void;
+    id: number
 }
 
 export interface IScores {
-    callback: () => void;
+    callback: (rate: number) => void;
 }

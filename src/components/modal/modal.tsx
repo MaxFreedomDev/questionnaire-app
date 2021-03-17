@@ -2,23 +2,48 @@ import React, { useState } from "react";
 import { ReactComponent as Close } from "../../img/close.svg";
 import RateLogo from "../../img/imageRate.svg";
 import { data } from "../../store/store";
-import { IProps, StepTypes } from "../../types/types";
+import { IModal, StepTypes } from "../../types/types";
 import Form from "../form/form";
 import Button from "../button/button";
 import Scores from "../scores/scores";
 
 import "./modal.css";
 
-const Modal: React.FC<IProps> = ({ active, setActive }) => {
-  const [step, setStep] = useState<Number>(0);
+const Modal: React.FC<IModal> = ({ active, setActive }) => {
+  const [result, setResult] = useState({
+    rate: 0,
+    comment: "",
+  });
+  const [step, setStep] = useState<number>(0);
   const currentStep = data.steps.find((el) => el.id === step);
+
+  const getScore = (rate: number) => {
+    setStep(step + 1);
+    setResult({ ...result, rate });
+  };
+
+  const closeModal = (id: number) => {
+    if (id === 2) {
+      return setStep(id + 1);
+    }
+    if (id === 3) {
+      setActive(false);
+      console.log(result);
+    }
+    setActive(false);
+  };
+
+  const getComment = (comment: string, id: number) => {
+    setResult({ ...result, comment });
+    setStep(id + 1);
+  };
 
   const stepRender = (step: StepTypes) => {
     const { id, title, text, btn_name, rating } = step;
     return (
       <>
         <Close
-          onClick={() => setActive(false)}
+          onClick={() => closeModal(id)}
           className="modal-content__close"
         />
         {id === 0 ? (
@@ -27,8 +52,8 @@ const Modal: React.FC<IProps> = ({ active, setActive }) => {
         <div className="modal-content__body">
           <h2>{title}</h2>
           <p style={id === 3 ? { maxWidth: 370 } : {}}>{text}</p>
-          {rating ? <Scores callback={() => setStep(id + 1)} /> : null}
-          {id === 2 ? <Form submit={() => setStep(id + 1)} /> : null}
+          {rating ? <Scores callback={getScore} /> : null}
+          {id === 2 ? <Form submit={getComment} id={id} /> : null}
           {id === 0 ? (
             <Button text={btn_name} callback={() => setStep(id + 1)} />
           ) : null}

@@ -7,7 +7,7 @@ import "./form.css";
 
 const Form = (props: IPropsForm) => {
   const { register, handleSubmit, errors } = useForm<IInput>();
-  const onSubmit = handleSubmit(props.submit);
+  const onSubmit = handleSubmit((data) => props.submit(data.text, props.id));
   return (
     <form onSubmit={onSubmit} className="form">
       <div className="form-content">

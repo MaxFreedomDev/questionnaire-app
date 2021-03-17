@@ -6,7 +6,7 @@ import "./app.css";
 const App: React.FC = () => {
   const [modalActive, setModalActive] = useState<boolean>(false);
   const [showBtn, setShowBtn] = useState<boolean>(false);
-  const [seconds, setSeconds] = useState<number>(10);
+  const [seconds, setSeconds] = useState<number>(1);
 
   useEffect(() => {
     if (seconds > 0) {

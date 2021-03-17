@@ -9,7 +9,12 @@ const Scores = ({ callback }: IScores) => {
   return (
     <div className="scores">
       {data.scores.map((score) => (
-        <Button text={score} callback={callback} key={score} styles="score" />
+        <Button
+          text={score}
+          callback={() => callback(score)}
+          key={score}
+          styles="score"
+        />
       ))}
     </div>
   );
