@@ -1,14 +1,16 @@
 import React from "react";
-import { data } from "../../store/store";
 import { IScores } from "../../types/types";
 import Button from "../button/button";
+import {useGlobalContext} from "../app-context/app-context";
 
 import "./scores.css";
 
+
 const Scores = ({ callback }: IScores) => {
+  const { scores } = useGlobalContext();
   return (
     <div className="scores">
-      {data.scores.map((score) => (
+      {scores.map((score) => (
         <Button
           text={score}
           callback={() => callback(score)}

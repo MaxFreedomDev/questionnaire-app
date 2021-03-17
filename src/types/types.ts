@@ -3,6 +3,7 @@ import {Dispatch, SetStateAction} from "react";
 export interface IModal {
     active: boolean;
     setActive: Dispatch<SetStateAction<boolean>>;
+    setRestartApp: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface StepTypes {
@@ -32,4 +33,9 @@ export interface IPropsForm {
 
 export interface IScores {
     callback: (rate: number) => void;
+}
+
+export type GlobalContent = {
+    steps: Array<StepTypes>
+    scores:Array<number>
 }

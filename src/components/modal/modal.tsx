@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { ReactComponent as Close } from "../../img/close.svg";
 import RateLogo from "../../img/imageRate.svg";
-import { data } from "../../store/store";
 import { IModal, StepTypes } from "../../types/types";
 import Form from "../form/form";
 import Button from "../button/button";
 import Scores from "../scores/scores";
 
 import "./modal.css";
+import {useGlobalContext} from "../app-context/app-context";
 
-const Modal: React.FC<IModal> = ({ active, setActive }) => {
+const Modal: React.FC<IModal> = ({ active, setActive, setRestartApp }) => {
   const [result, setResult] = useState({
     rate: 0,
     comment: "",
   });
   const [step, setStep] = useState<number>(0);
-  const currentStep = data.steps.find((el) => el.id === step);
+  const { steps } = useGlobalContext();
+  const currentStep = steps.find((el) => el.id === step);
+
+
+  useEffect(()=>{
+    if(step === 3) {
+      console.log(result)
+    }
+  }, [step, result]);
 
   const getScore = (rate: number) => {
     setStep(step + 1);
@@ -27,8 +35,9 @@ const Modal: React.FC<IModal> = ({ active, setActive }) => {
       return setStep(id + 1);
     }
     if (id === 3) {
+      setRestartApp(true);
       setActive(false);
-      console.log(result);
+      setTimeout(()=>{setStep(0)}, 1000)
     }
     setActive(false);
   };
